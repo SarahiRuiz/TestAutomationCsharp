@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2.0\\TestAutomation2.0\\TestAutomation2.0.csproj": {}
+    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2.0\\TestAutomation2.0\\TestAutomation2.0.csproj": {
+    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2.0\\TestAutomation2.0\\TestAutomation2.0.csproj",
-        "projectName": "TestAutomation2.0",
-        "projectPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2.0\\TestAutomation2.0\\TestAutomation2.0.csproj",
+        "projectUniqueName": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
+        "projectName": "TestAutomationSimple",
+        "projectPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
         "packagesPath": "C:\\Users\\Ana.Ruiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2.0\\TestAutomation2.0\\obj\\",
+        "outputPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ana.Ruiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,32 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.14.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            },
+            "WebDriverManager": {
+              "target": "Package",
+              "version": "[2.17.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
