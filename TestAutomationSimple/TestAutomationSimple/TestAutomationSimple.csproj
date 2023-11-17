@@ -10,9 +10,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Model\" />
-    <Folder Include="Enums\" />
-    <Folder Include="PageObject\" />
-    <Folder Include="Test\" />
   </ItemGroup>
 
   <ItemGroup>
