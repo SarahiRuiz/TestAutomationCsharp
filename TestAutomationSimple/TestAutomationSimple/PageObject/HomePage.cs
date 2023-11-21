@@ -1,17 +1,25 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Drawing;
 using TestAutomationSimple.Enums;
 
 namespace TestAutomationSimple.PageObject
 {
     public class HomePage : SetUp
     {
-        public static HomePageEnums HomePageEnums = new HomePageEnums();        
+        public static HomePageEnums HomePageEnums = new HomePageEnums();
+        public GlobalMethods GlobalMethods = new GlobalMethods();        
         public void GoToFormPage()
         {
-            //Verify element is there
-            IWebElement FormOption = driver.FindElement(HomePageEnums.FormOption);
-            FormOption.Click();
+            IWebElement formOption = driver.FindElement(HomePageEnums.FormOption);
+            bool clickFormOption = GlobalMethods.ClickOn(formOption);
+            Assert.IsTrue(clickFormOption, "Verify if form option was clicked.");
+            IWebElement PracticeFormOption = driver.FindElement(HomePageEnums.PracticeFormOption);
+            bool clickOnPracticeFormOption = GlobalMethods.ClickOn(PracticeFormOption);
+            Assert.IsTrue(clickOnPracticeFormOption, "Verify if Practice Form Option was clicked.");
+            IWebElement PracticeFormTitle = driver.FindElement(HomePageEnums.PracticeFormTitle);
+            bool PracticeFormTitleDisplayed = GlobalMethods.ClickOn(PracticeFormTitle);
+            Assert.IsTrue(PracticeFormTitleDisplayed, "Verify if Practice Form Title was displayed.");
             Thread.Sleep(2000);
         }
         public void VerifyHomePage()
