@@ -14,8 +14,18 @@ namespace TestAutomationSimple.Test
         public void FillForm() 
         {
             HomePage.VerifyHomePage();
+            HomePage.VerifyTotalOfTables();
             HomePage.GoToFormPage();
             PracticeFormPage.FillForm(validData);
         }
+        /*[Test]
+        public void Test()
+        {
+            var vehicleType = Enum.GetValues(typeof(FileName)).Cast<FileName>().ToList();
+            foreach(var vehicle in vehicleType)
+            {
+
+            }
+        }*/
     }
 }

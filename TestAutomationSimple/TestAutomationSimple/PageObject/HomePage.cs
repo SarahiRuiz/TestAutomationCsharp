@@ -22,6 +22,11 @@ namespace TestAutomationSimple.PageObject
             Assert.IsTrue(PracticeFormTitleDisplayed, "Verify if Practice Form Title was displayed.");
             Thread.Sleep(2000);
         }
+        public void VerifyTotalOfTables()
+        {
+            var tableOptions = driver.FindElements(HomePageEnums.TableOptions);
+            Assert.IsTrue(tableOptions.Count == 6, "Verify if all table options were displayed.");
+        }
         public void VerifyHomePage()
         {
             Thread.Sleep(5000);
