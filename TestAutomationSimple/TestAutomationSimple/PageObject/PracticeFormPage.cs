@@ -15,6 +15,15 @@ namespace TestAutomationSimple.PageObject
             Assert.True(FirstNameInput.Displayed, "Verify if First Name input was displayed.");
             bool enterFirstNameInput = GlobalMethods.EnterText(FirstNameInput, formData.FirstName);
             Assert.True(enterFirstNameInput, $"Verify if First Name {formData.FirstName} was added.");
+            IWebElement LastNameInput = driver.FindElement(PracticeFormPageEnums.LastNameInput);
+            bool enterLastNameInput = GlobalMethods.EnterText(LastNameInput, formData.LastName);
+            Assert.True(enterLastNameInput, $"Verify if Last Name {formData.LastName} was added.");
+            IWebElement UserEmailInput = driver.FindElement(PracticeFormPageEnums.UserEmailInput);
+            bool enterUserEmailInput = GlobalMethods.EnterText(UserEmailInput, formData.UserEmail);
+            Assert.True(enterUserEmailInput, $"Verify if Emial {formData.UserEmail} was added.");
+            IWebElement GenderOtherRadioButton = driver.FindElement(PracticeFormPageEnums.GenderOtherRadioButton);
+            bool clickGenderOtherRadioButton = GlobalMethods.ClickOn(GenderOtherRadioButton);
+            Assert.IsTrue(clickGenderOtherRadioButton, "Verify if Gender Other Radio Button was clicked.");
         }
     }
 }

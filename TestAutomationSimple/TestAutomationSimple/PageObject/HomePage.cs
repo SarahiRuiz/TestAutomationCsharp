@@ -22,6 +22,20 @@ namespace TestAutomationSimple.PageObject
             Assert.IsTrue(PracticeFormTitleDisplayed, "Verify if Practice Form Title was displayed.");
             Thread.Sleep(2000);
         }
+        public void GoToRadioButtonPage()
+        {            
+            IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
+            bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
+            Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
+            Thread.Sleep(2000);
+            IWebElement RadioButtonOption = driver.FindElement(HomePageEnums.RadioButtonOption);
+            bool clickRadioButtonOption = GlobalMethods.ClickOn(RadioButtonOption);
+            Assert.IsTrue(clickRadioButtonOption, "Verify if Radio Button Option clicked.");
+            IWebElement RadioButtonTitle = driver.FindElement(HomePageEnums.RadioButtonTitle);
+            bool radioButtonTitleDisplayed = GlobalMethods.ClickOn(RadioButtonTitle);
+            Assert.IsTrue(radioButtonTitleDisplayed, "Verify if Radio Button Option was displayed.");
+            Thread.Sleep(2000);
+        }
         public void VerifyTotalOfTables()
         {
             var tableOptions = driver.FindElements(HomePageEnums.TableOptions);
