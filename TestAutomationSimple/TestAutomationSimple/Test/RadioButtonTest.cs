@@ -7,7 +7,7 @@ namespace TestAutomationSimple.Test
     {
         public HomePage HomePage = new HomePage();
         public RadioButtonPage RadioButtonPage = new RadioButtonPage();
-        [Test]
+        [Test, Category("Functional Testing")]
         public void RadioButtonExample()
         {
             HomePage.VerifyHomePage();
