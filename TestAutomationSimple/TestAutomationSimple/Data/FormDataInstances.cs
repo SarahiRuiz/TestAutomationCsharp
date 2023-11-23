@@ -7,7 +7,8 @@ namespace TestAutomationSimple.Data
         public static FormData ValidaData = new FormData
         {
             FirstName = "Billy",
-            LastName = "Lasti"
+            LastName = "Lasti",
+            UserEmail = "test@test.com"
         };
     }
 }

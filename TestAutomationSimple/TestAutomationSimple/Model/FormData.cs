@@ -5,5 +5,6 @@ namespace TestAutomationSimple.Model
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
+        public String UserEmail { get; set; }
     }
 }
