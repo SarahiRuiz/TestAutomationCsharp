@@ -6,7 +6,7 @@ namespace TestAutomationSimple.Data
 {
     public class FormTestDataSource
     {
-        public static IEnumerable FormDataSource()
+        public static IEnumerable FillForm()
         {
             List<Users> userList = Enum.GetValues(typeof(Users)).Cast<Users>().ToList();
             foreach (var user in userList)
@@ -17,7 +17,7 @@ namespace TestAutomationSimple.Data
                     Users.Juan => FormDataInstances.Juan,
                     Users.Billy => FormDataInstances.Billy
                 };
-                yield return new TestCaseData(user, formData);
+                yield return new TestCaseData(user, formData).SetName($"FillForm_By_({user})");
             }
         }
     }

@@ -11,8 +11,8 @@ namespace TestAutomationSimple.Test
         public HomePage HomePage = new HomePage();
         public PracticeFormPage PracticeFormPage = new PracticeFormPage();        
         [Test,Category("Regression Testing")]
-        [TestCaseSource(typeof(FormTestDataSource), nameof(FormTestDataSource.FormDataSource))]
-        public void FillForm(Users user, FormData formData) 
+        [TestCaseSource(typeof(FormTestDataSource), nameof(FormTestDataSource.FillForm))]
+        public void FillForm_By_(Users user, FormData formData) 
         {
             HomePage.VerifyHomePage();
             HomePage.VerifyTotalOfTables();
