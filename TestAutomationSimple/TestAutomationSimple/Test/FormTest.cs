@@ -5,27 +5,19 @@ using TestAutomationSimple.PageObject;
 
 namespace TestAutomationSimple.Test
 {
+    [TestFixture]
     public class FormTest : SetUp
     {
         public HomePage HomePage = new HomePage();
-        public PracticeFormPage PracticeFormPage = new PracticeFormPage();
-        FormData validData = FormDataInstances.ValidaData;
-        [Test]
-        public void FillForm() 
+        public PracticeFormPage PracticeFormPage = new PracticeFormPage();        
+        [Test,Category("Regression Testing")]
+        [TestCaseSource(typeof(FormTestDataSource), nameof(FormTestDataSource.FormDataSource))]
+        public void FillForm(Users user, FormData formData) 
         {
             HomePage.VerifyHomePage();
             HomePage.VerifyTotalOfTables();
             HomePage.GoToFormPage();
-            PracticeFormPage.FillForm(validData);
+            PracticeFormPage.FillForm(formData);
         }
-        /*[Test]
-        public void Test()
-        {
-            var vehicleType = Enum.GetValues(typeof(FileName)).Cast<FileName>().ToList();
-            foreach(var vehicle in vehicleType)
-            {
-
-            }
-        }*/
     }
 }
