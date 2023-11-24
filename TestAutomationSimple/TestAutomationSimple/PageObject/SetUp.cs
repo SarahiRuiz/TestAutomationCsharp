@@ -9,7 +9,7 @@ namespace TestAutomationSimple.PageObject
     {
         public static IWebDriver driver;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUpInitial()
         {
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
@@ -19,7 +19,7 @@ namespace TestAutomationSimple.PageObject
             Thread.Sleep(5000);
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void TearDown()
         {
             driver.Quit();
