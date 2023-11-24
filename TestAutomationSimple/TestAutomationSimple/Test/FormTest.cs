@@ -12,6 +12,8 @@ namespace TestAutomationSimple.Test
         public PracticeFormPage PracticeFormPage = new PracticeFormPage();        
         [Test,Category("Regression Testing")]
         [TestCaseSource(typeof(FormTestDataSource), nameof(FormTestDataSource.FillForm))]
+        //[assembly: LevelOfParallelism(3)]
+        //[Parallelizable(scope: ParallelScope.All)]
         public void FillForm_By_(Users user, FormData formData) 
         {
             HomePage.VerifyHomePage();
