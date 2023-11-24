@@ -8,19 +8,25 @@ namespace TestAutomationSimple.Data
         {
             FirstName = "Miguel",
             LastName = "Barajas",
-            UserEmail = "Miguel@test.com"
+            UserEmail = "Miguel@test.com",
+            TelephoneNumber = "1234567890",
+            DateBirth = "01/01/2000"
         };
         public static FormData Juan = new FormData
         {
             FirstName = "Juan",
             LastName = "Estrada",
-            UserEmail = "Juan@test.com"
+            UserEmail = "Juan@test.com",
+            TelephoneNumber = "0987654321",
+            DateBirth = "15/10/2020"
         };
         public static FormData Billy = new FormData
         {
             FirstName = "Billy",
             LastName = "Lasti",
-            UserEmail = "Billy@test.com"
+            UserEmail = "Billy@test.com",
+            TelephoneNumber = "2468101214",
+            DateBirth = "31/12/2020"
         };
     }
 }
