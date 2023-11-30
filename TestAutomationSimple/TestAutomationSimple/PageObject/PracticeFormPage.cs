@@ -1,6 +1,9 @@
-﻿using NUnit.Framework;
+﻿using AngleSharp.Dom;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Internal;
+using System.Xml.Linq;
 using TestAutomationSimple.Enums;
 using TestAutomationSimple.Model;
 
@@ -11,7 +14,7 @@ namespace TestAutomationSimple.PageObject
         public PracticeFormPageEnums PracticeFormPageEnums = new PracticeFormPageEnums();
         public GlobalMethods GlobalMethods = new GlobalMethods();
         public void FillForm(FormData formData)
-        {
+        {            
             IWebElement FirstNameInput = driver.FindElement(PracticeFormPageEnums.FirstNameInput);
             Assert.True(FirstNameInput.Displayed, "Verify if First Name input was displayed.");
             bool enterFirstNameInput = GlobalMethods.EnterText(FirstNameInput, formData.FirstName);
@@ -22,14 +25,29 @@ namespace TestAutomationSimple.PageObject
             IWebElement UserEmailInput = driver.FindElement(PracticeFormPageEnums.UserEmailInput);
             bool enterUserEmailInput = GlobalMethods.EnterText(UserEmailInput, formData.UserEmail);
             Assert.True(enterUserEmailInput, $"Verify if Emial {formData.UserEmail} was added.");
-            /*IWebElement GenderOtherRadioButton = driver.FindElement(PracticeFormPageEnums.GenderOtherRadioButton);
-            bool clickGenderOtherRadioButton = GlobalMethods.ClickOn(GenderOtherRadioButton);
-            Assert.IsTrue(clickGenderOtherRadioButton, "Verify if Gender Other Radio Button was clicked.");*/
+            IWebElement GenderOtherRadioButton = 
+                GlobalMethods.DynamicToIWebElement(PracticeFormPageEnums.GenderRadioButtonDynamic, formData.Gender);
+            bool clickGenderOtherRadioButton = GlobalMethods.ClickRadioButtonOrCheckBox(GenderOtherRadioButton);
+            Assert.IsTrue(clickGenderOtherRadioButton, $"Verify if gender {formData.Gender} was clicked");
             IWebElement TelephoneNumberInput = driver.FindElement(PracticeFormPageEnums.TelephoneNumberInput);
             bool enterTelephoneNumberInput = GlobalMethods.EnterText(TelephoneNumberInput, formData.TelephoneNumber);
             Assert.True(enterTelephoneNumberInput, $"Verify if Telephone Number {formData.TelephoneNumber} was added.");
             IWebElement CalendarInput = driver.FindElement(PracticeFormPageEnums.CalendarInput);
             SelectDateCalendar(CalendarInput, formData.DateBirth);
+            IWebElement SubjectInput = driver.FindElement(PracticeFormPageEnums.SubjectInput);
+            GlobalMethods.ScrollToElement(SubjectInput);
+            Assert.True(SubjectInput.Displayed, "Verify if Subject input was displayed.");
+            bool enterSubjectInput = GlobalMethods.EnterText(SubjectInput, formData.Subject);
+            Assert.True(enterSubjectInput, $"Verify if Subject {formData.Subject} was added.");
+            Thread.Sleep(2000);
+            IWebElement SubjectInputOption = driver.FindElement(PracticeFormPageEnums.SubjectInputOption);            
+            Assert.True(SubjectInputOption.Displayed, "Verify if Subject Option was displayed.");
+            bool clickSubjectInputOption = GlobalMethods.ClickOn(SubjectInputOption);
+            Assert.True(clickSubjectInputOption, $"Verify if Subject Option {formData.Subject} was clicked.");
+            IWebElement HobbiesCheckBox = 
+                GlobalMethods.DynamicToIWebElement(PracticeFormPageEnums.HobbiesCheckBoxDynamic, formData.Hobbie);
+            bool clickHobbiesCheckBox = GlobalMethods.ClickRadioButtonOrCheckBox(HobbiesCheckBox);
+            Assert.True(clickHobbiesCheckBox, $"Verify if Hobbies CheckBox {formData.Hobbie} was clicked.");
         }
         public void SelectDateCalendar(IWebElement calendarInput, String date)
         {            
