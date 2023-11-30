@@ -8,5 +8,8 @@ namespace TestAutomationSimple.Model
         public String UserEmail { get; set; }
         public String TelephoneNumber { get; set; }
         public String DateBirth { get; set; }
+        public String Subject { get; set; }
+        public String Gender { get; set; }
+        public String Hobbie { get; set; }
     }
 }
