@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using WebDriverManager.DriverConfigs.Impl;
 
 namespace TestAutomationSimple.PageObject
@@ -8,6 +9,7 @@ namespace TestAutomationSimple.PageObject
     public class SetUp
     {
         public static IWebDriver driver;
+        public static Actions action;
 
         [SetUp]
         public void SetUpInitial()
@@ -15,6 +17,7 @@ namespace TestAutomationSimple.PageObject
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             driver = new ChromeDriver();
             driver.Url = "https://demoqa.com/";
+            action = new Actions(driver);
             driver.Manage().Window.Maximize();
             Thread.Sleep(5000);
         }
