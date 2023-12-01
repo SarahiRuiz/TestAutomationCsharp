@@ -10,9 +10,10 @@ namespace TestAutomationSimple.PageObject
         public RadioButtonPageEnums RadioButtonPageEnums = new RadioButtonPageEnums();
         public void VerifyAndClickYesRadioButton()
         {
-            IWebElement yesRadioButton = driver.FindElement(RadioButtonPageEnums.YesRadioButton);
-            bool clickYesRadioButton = GlobalMethods.ClickOn(yesRadioButton);
-            Assert.IsTrue(clickYesRadioButton, "Verify if Yes Radio Button was clicked.");
+            String option = "Impressive";
+            IWebElement RadioButton = GlobalMethods.DynamicToIWebElement(RadioButtonPageEnums.RadioButtonOption, option);
+            bool clickRadioButton = GlobalMethods.ClickRadioButtonOrCheckBox(RadioButton);
+            Assert.IsTrue(clickRadioButton, $"Verify if Yes Radio Button {option} was clicked.");
         }
     }
 }
