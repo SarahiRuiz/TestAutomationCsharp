@@ -11,18 +11,15 @@ namespace TestAutomationSimple.PageObject
         public bool EnterText(IWebElement element, string value, int timeOut = 10)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(d => WaitElementEnter(wait, element, value));
+            return wait.Until(d => WaitElementEnter(element, value));
         }
 
-        private bool WaitElementEnter(WebDriverWait wait, IWebElement element, string Value)
+        private bool WaitElementEnter(IWebElement element, string Value)
         {
             try
             {
-                return wait.Until(d =>
-                {
-                    element.SendKeys(Value);
-                    return true;
-                });
+                element.SendKeys(Value);
+                return true;
             }
             catch (Exception ex)
             {
@@ -32,18 +29,15 @@ namespace TestAutomationSimple.PageObject
         public bool ClickOn(IWebElement element, int timeOut = 10)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(d => WaitElementClicked(wait, element));
+            return wait.Until(d => WaitElementClicked(element));
         }
 
-        private bool WaitElementClicked(WebDriverWait wait, IWebElement element)
+        private bool WaitElementClicked(IWebElement element)
         {
             try
             {
-                return wait.Until(d =>
-                {
-                    element.Click();
-                    return true;
-                });
+                element.Click();
+                return true;
             }
             catch (Exception ex)
             {
@@ -53,26 +47,23 @@ namespace TestAutomationSimple.PageObject
         public bool ScrollToElement(IWebElement element, int timeOut = 10)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(d => WaitToScrollToElement(wait, element));
+            return wait.Until(d => WaitToScrollToElement(element));
         }
-        public bool WaitToScrollToElement(WebDriverWait wait, IWebElement element)
+        public bool WaitToScrollToElement(IWebElement element)
         {
             try
             {
-                return wait.Until(d =>
+                var scrollOrigin = new WheelInputDevice.ScrollOrigin
                 {
-                    var scrollOrigin = new WheelInputDevice.ScrollOrigin
-                    {
-                        Element = element,
-                        XOffset = 0,
-                        YOffset = -50
-                    };
-                    new Actions(driver)
-                        .ScrollFromOrigin(scrollOrigin, 0, 200)
-                        .Perform();
-                    Thread.Sleep(1000);
-                    return true;
-                });
+                    Element = element,
+                    XOffset = 0,
+                    YOffset = -50
+                };
+                new Actions(driver)
+                    .ScrollFromOrigin(scrollOrigin, 0, 200)
+                    .Perform();
+                Thread.Sleep(1000);
+                return true;
             }
             catch(Exception ex)
             {
@@ -86,17 +77,14 @@ namespace TestAutomationSimple.PageObject
         public bool ClickRadioButtonOrCheckBox(IWebElement element, int timeOut = 10)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(d => WaitToClickRadioButtonOrCheckBox(wait, element));
+            return wait.Until(d => WaitToClickRadioButtonOrCheckBox(element));
         }
-        public bool WaitToClickRadioButtonOrCheckBox(WebDriverWait wait, IWebElement element)
+        public bool WaitToClickRadioButtonOrCheckBox(IWebElement element)
         {
             try
-            {
-                return wait.Until(d =>
-                {                    
-                    action.Click(element).Build().Perform();
-                    return true;
-                });
+            {                 
+                action.Click(element).Perform();
+                return true;
             }
             catch (Exception ex)
             {
