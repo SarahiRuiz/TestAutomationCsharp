@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using TestAutomationSimple.Enums;
+using TestAutomationSimple.Model;
 
 namespace TestAutomationSimple.PageObject
 {
@@ -8,12 +9,16 @@ namespace TestAutomationSimple.PageObject
     {
         public GlobalMethods GlobalMethods = new GlobalMethods();
         public RadioButtonPageEnums RadioButtonPageEnums = new RadioButtonPageEnums();
-        public void VerifyAndClickYesRadioButton()
+        public void VerifyAndClickRadioButtonOption(RadioButtonOption radioButtonOption)
         {
-            String option = "Impressive";
-            IWebElement RadioButton = GlobalMethods.DynamicToIWebElement(RadioButtonPageEnums.RadioButtonOption, option);
+            IWebElement RadioButton = GlobalMethods.DynamicToIWebElement(RadioButtonPageEnums.RadioButtonOption, radioButtonOption.ToString());
             bool clickRadioButton = GlobalMethods.ClickRadioButtonOrCheckBox(RadioButton);
-            Assert.IsTrue(clickRadioButton, $"Verify if Yes Radio Button {option} was clicked.");
+            Assert.IsTrue(clickRadioButton, $"Verify if Radio Button {radioButtonOption.ToString()} was clicked.");
+            if(radioButtonOption!=RadioButtonOption.No)
+            {
+                IWebElement RadioButtonTitle = GlobalMethods.DynamicToIWebElement(RadioButtonPageEnums.RadioButtonTitle, radioButtonOption.ToString());
+                Assert.IsTrue(RadioButtonTitle.Displayed, $"Verify if Radio Button Title {radioButtonOption.ToString()} was clicked.");
+            }            
         }
     }
 }
