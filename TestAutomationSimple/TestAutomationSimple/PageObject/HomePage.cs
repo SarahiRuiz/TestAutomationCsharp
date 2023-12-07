@@ -8,7 +8,7 @@ namespace TestAutomationSimple.PageObject
     public class HomePage : SetUp
     {
         public static HomePageEnums HomePageEnums = new HomePageEnums();
-        public GlobalMethods GlobalMethods = new GlobalMethods();        
+        public GlobalMethods GlobalMethods = new GlobalMethods();
         public void GoToFormPage()
         {
             IWebElement formOption = driver.FindElement(HomePageEnums.FormOption);
@@ -23,7 +23,7 @@ namespace TestAutomationSimple.PageObject
             Thread.Sleep(2000);
         }
         public void GoToRadioButtonPage()
-        {            
+        {
             IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
             bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
             Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
@@ -46,6 +46,17 @@ namespace TestAutomationSimple.PageObject
             Thread.Sleep(5000);
             IWebElement LogoPage = driver.FindElement(HomePageEnums.LogoPage);
             Assert.True(LogoPage.Displayed, "Verify logo was diplayed.");
+        } 
+        public void GoToWebTablesPage()
+        {
+            IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
+            bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
+            Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
+            IWebElement WebElementOption = driver.FindElement(HomePageEnums.WebTablesOption);
+            bool clickWebElementOption = GlobalMethods.ClickOn(WebElementOption);
+            Assert.IsTrue(clickWebElementOption, "Verify if Web Tables Option was clicked.");
+            IWebElement WebTablesTitle = driver.FindElement(HomePageEnums.WebTablesTitle);
+            Assert.IsTrue(WebTablesTitle.Displayed, "Verify if Web Tables Title was displayed.");
         }
     }
 }
