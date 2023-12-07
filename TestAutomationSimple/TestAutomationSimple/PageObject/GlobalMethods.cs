@@ -91,5 +91,9 @@ namespace TestAutomationSimple.PageObject
                 return false;
             }
         }
+        public int GetTotalOfElements(By element)
+        {
+            return driver.FindElements(element).Count;
+        }
     }
 }
