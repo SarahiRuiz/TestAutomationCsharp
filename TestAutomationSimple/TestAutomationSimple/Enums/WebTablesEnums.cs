@@ -15,5 +15,7 @@ namespace TestAutomationSimple.Enums
         public By SubmitPopUpButton = By.Id("submit");
         public By TableDataDynamic = By.XPath("//div[@class='rt-tr-group']//div[text()='?']");
         public By TableRows = By.XPath("//div[@class='rt-tr-group']");
+        public By DeleteRowIcon = By.Id("delete-record-1");
+        public By EditRowIcon = By.Id("edit-record-1");
     }
 }
