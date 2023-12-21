@@ -17,10 +17,10 @@ namespace TestAutomationSimple.PageObject
                     AddUser(webTableData);
                     break;
                 case WebTableOptions.Edit:
-                    EditUser();
+                    EditUser(webTableData);
                     break;
                 case WebTableOptions.Delete:
-                    DeleteUser();
+                    DeleteUser(webTableData);
                     break;
             }
         }
@@ -37,13 +37,24 @@ namespace TestAutomationSimple.PageObject
             int totalOfColums = GlobalMethods.GetTotalOfElements(WebTablesEnums.TableRows);
             VerifyTableDataAdded(webTableData, totalOfColums);
         }
-        public void EditUser()
+        public void EditUser(WebTableData webTableData)
         {
-
+            IWebElement EditRowIcon = driver.FindElement(WebTablesEnums.EditRowIcon);
+            Assert.IsTrue(EditRowIcon.Displayed, "Verify Edit Row Icon was displayed");
+            bool clickEditRowIcon = GlobalMethods.ClickOn(EditRowIcon);
+            Assert.IsTrue(clickEditRowIcon, "Verify Edit Row Icon was clicked");
+            FillUserPopUp(webTableData);
+            int totalOfColums = GlobalMethods.GetTotalOfElements(WebTablesEnums.TableRows);
+            VerifyTableDataAdded(webTableData, totalOfColums);
         }   
-        public void DeleteUser()
+        public void DeleteUser(WebTableData webTableData)
         {
-
+            IWebElement DeleteRowIcon = driver.FindElement(WebTablesEnums.DeleteRowIcon);
+            Assert.IsTrue(DeleteRowIcon.Displayed, "Verify Delete Row Icon was displayed");
+            bool clickDeleteRowIcon = GlobalMethods.ClickOn(DeleteRowIcon);
+            Assert.IsTrue(clickDeleteRowIcon, "Verify Delete Row Icon was clicked");
+            int totalOfColums = GlobalMethods.GetTotalOfElements(WebTablesEnums.TableRows);
+            VerifyTableDataDeleted(webTableData, totalOfColums);
         }
         public void FillUserPopUp(WebTableData webTableData)
         {
@@ -101,5 +112,34 @@ namespace TestAutomationSimple.PageObject
             IWebElement departmentRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.Department);
             Assert.IsTrue(departmentRow.Displayed, $"Verify department{webTableData.Department} is in the table.");
         }   
+        public void VerifyTableDataDeleted(WebTableData webTableData, int totalOfColums)
+        {
+            int colomnValue = 0;
+            String rowValue = "//div[@class='rt-tr-group'][1]//div[text()='2']";
+            for (int i = 1; i <= totalOfColums; i++)
+            {
+                String valueRow = rowValue.Replace("1", i.ToString()).Replace("2", webTableData.FirstName);
+                try
+                {
+                    IWebElement firstNameRow = driver.FindElement(By.XPath(valueRow));
+                    Assert.IsTrue(firstNameRow.Displayed, $"Verify first name {webTableData.FirstName} is in the table.");
+                    By rowValueActual = By.XPath($"//div[@class='rt-tr-group'][{i}]//div[text()='?']");
+                    IWebElement lastNameRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.LastName);
+                    Assert.IsTrue(lastNameRow.Displayed, $"Verify last name {webTableData.LastName} is in the table.");
+                    IWebElement ageRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.Age);
+                    Assert.IsTrue(ageRow.Displayed, $"Verify age {webTableData.Age} is in the table.");
+                    IWebElement emailRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.Email);
+                    Assert.IsTrue(emailRow.Displayed, $"Verify email {webTableData.Email} is in the table.");
+                    IWebElement salaryRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.Salary);
+                    Assert.IsTrue(salaryRow.Displayed, $"Verify salary {webTableData.Salary} is in the table.");
+                    IWebElement departmentRow = GlobalMethods.DynamicToIWebElement(rowValueActual, webTableData.Department);
+                    Assert.IsTrue(departmentRow.Displayed, $"Verify department{webTableData.Department} is in the table.");
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }   
+        }
     }
 }
