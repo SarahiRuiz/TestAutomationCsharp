@@ -18,6 +18,7 @@ namespace TestAutomationSimple.PageObject
         {
             try
             {
+                element.Clear();
                 element.SendKeys(Value);
                 return true;
             }
