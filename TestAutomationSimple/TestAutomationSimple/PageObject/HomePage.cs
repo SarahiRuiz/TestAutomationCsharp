@@ -61,5 +61,20 @@ namespace TestAutomationSimple.PageObject
             IWebElement WebTablesTitle = driver.FindElement(HomePageEnums.WebTablesTitle);
             Assert.IsTrue(WebTablesTitle.Displayed, "Verify if Web Tables Title was displayed.");
         }
+        public void GoToButtonsPage()
+        {
+            IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
+            GlobalMethods.ScrollToElement(ElementOption);
+            bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
+            Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
+            Thread.Sleep(2000);
+            IWebElement ButtonOption = driver.FindElement(HomePageEnums.ButtonOption);
+            bool clickButtonOption = GlobalMethods.ClickOn(ButtonOption);
+            Assert.IsTrue(clickButtonOption, "Verify if Button Option clicked.");
+            IWebElement ButtonTitle = driver.FindElement(HomePageEnums.ButtonOption);
+            bool ButtonTitleDisplayed = GlobalMethods.ClickOn(ButtonTitle);
+            Assert.IsTrue(ButtonTitleDisplayed, "Verify if Button Option was clicked.");
+            Thread.Sleep(2000);
+        }
     }
 }

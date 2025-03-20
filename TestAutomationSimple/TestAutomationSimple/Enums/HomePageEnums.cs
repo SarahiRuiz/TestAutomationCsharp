@@ -9,6 +9,7 @@ namespace TestAutomationSimple.Enums
         public By ElementOption = By.XPath("//div[@class='card mt-4 top-card'][1]");
         public By PracticeFormOption = By.XPath("//li[@id='item-0']//span[text()='Practice Form']");
         public By RadioButtonOption = By.XPath("//span[text()='Radio Button']");
+        public By ButtonOption = By.XPath("//span[text()='Buttons']");
         public By PracticeFormTitle = By.XPath("//span[text()='Practice Form']");
         public By RadioButtonTitle = By.XPath("//span[text()='Radio Button']");
         public By WebTablesOption = By.XPath("//span[text()='Web Tables']");
