@@ -12,7 +12,7 @@ namespace TestAutomationSimple.Enums
         public By PracticeFormTitle = By.XPath("//span[text()='Practice Form']");
         public By RadioButtonTitle = By.XPath("//span[text()='Radio Button']");
         public By WebTablesOption = By.XPath("//span[text()='Web Tables']");
-        public By WebTablesTitle = By.XPath("//div[text()='Web Tables']");
+        public By WebTablesTitle = By.XPath("//span[text()='Web Tables']");
         public By TableOptions = By.XPath("//div[@class='card mt-4 top-card']");        
     }
 }

@@ -25,6 +25,7 @@ namespace TestAutomationSimple.PageObject
         public void GoToRadioButtonPage()
         {
             IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
+            GlobalMethods.ScrollToElement(ElementOption);
             bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
             Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
             Thread.Sleep(2000);
@@ -50,9 +51,11 @@ namespace TestAutomationSimple.PageObject
         public void GoToWebTablesPage()
         {
             IWebElement ElementOption = driver.FindElement(HomePageEnums.ElementOption);
+            GlobalMethods.ScrollToElement(ElementOption);
             bool clickOnElementOption = GlobalMethods.ClickOn(ElementOption);
             Assert.IsTrue(clickOnElementOption, "Verify if Element Option was clicked.");
             IWebElement WebElementOption = driver.FindElement(HomePageEnums.WebTablesOption);
+            GlobalMethods.ScrollToElement(WebElementOption);
             bool clickWebElementOption = GlobalMethods.ClickOn(WebElementOption);
             Assert.IsTrue(clickWebElementOption, "Verify if Web Tables Option was clicked.");
             IWebElement WebTablesTitle = driver.FindElement(HomePageEnums.WebTablesTitle);

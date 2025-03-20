@@ -9,7 +9,7 @@ namespace TestAutomationSimple.PageObject
     {
         public GlobalMethods GlobalMethods = new GlobalMethods();
         public WebTablesEnums WebTablesEnums = new WebTablesEnums();
-        public void Actions(WebTableOptions webTableOptions, WebTableData webTableData)
+        public void PerformActions(WebTableOptions webTableOptions, WebTableData webTableData)
         {
             switch (webTableOptions)
             {

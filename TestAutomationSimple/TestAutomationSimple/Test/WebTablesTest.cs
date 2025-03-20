@@ -16,7 +16,7 @@ namespace TestAutomationSimple.Test
             HomePage.VerifyHomePage();
             HomePage.VerifyTotalOfTables();
             HomePage.GoToWebTablesPage();
-            WebTablesPage.Actions(webTableOptions, validData);
+            WebTablesPage.PerformActions(webTableOptions, validData);
         }   
     }
 }

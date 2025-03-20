@@ -12,6 +12,7 @@ namespace TestAutomationSimple.PageObject
         public void VerifyAndClickRadioButtonOption(RadioButtonOption radioButtonOption)
         {
             IWebElement RadioButton = GlobalMethods.DynamicToIWebElement(RadioButtonPageEnums.RadioButtonOption, radioButtonOption.ToString());
+            GlobalMethods.ScrollToElement(RadioButton);
             bool clickRadioButton = GlobalMethods.ClickRadioButtonOrCheckBox(RadioButton);
             Assert.IsTrue(clickRadioButton, $"Verify if Radio Button {radioButtonOption.ToString()} was clicked.");
             if(radioButtonOption!=RadioButtonOption.No)

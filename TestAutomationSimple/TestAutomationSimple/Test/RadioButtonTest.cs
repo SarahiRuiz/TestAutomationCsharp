@@ -11,6 +11,8 @@ namespace TestAutomationSimple.Test
         public RadioButtonPage RadioButtonPage = new RadioButtonPage();
         [Test, Category("Functional Testing")]
         [TestCaseSource(typeof(RadioButtonTestDataSource), nameof(RadioButtonTestDataSource.RadioButtonTest))]
+        //[assembly: LevelOfParallelism(3)]
+        //[Parallelizable(scope: ParallelScope.All)]
         public void RadioButtonExample_(RadioButtonOption radioButtonOption)
         {
             HomePage.VerifyHomePage();
