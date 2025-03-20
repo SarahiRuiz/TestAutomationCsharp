@@ -14,8 +14,13 @@ namespace TestAutomationSimple.PageObject
         [SetUp]
         public void SetUpInitial()
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
+            var options = new ChromeOptions();
+            var driverPath = @"C:\Users\Ana.Ruiz\source\MyTraning\TestAutomation2\TestAutomationSimple\TestAutomationSimple\bin\Debug\net6.0\Chrome\134.0.6998.90\X64"; 
+            driver = new ChromeDriver(driverPath, options);
+
+
+            /*new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), "134.0.6998.90");
+            driver = new ChromeDriver();*/
             driver.Url = "https://demoqa.com/";
             action = new Actions(driver);
             driver.Manage().Window.Maximize();

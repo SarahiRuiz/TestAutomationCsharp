@@ -33,6 +33,7 @@ namespace TestAutomationSimple.PageObject
             bool enterTelephoneNumberInput = GlobalMethods.EnterText(TelephoneNumberInput, formData.TelephoneNumber);
             Assert.True(enterTelephoneNumberInput, $"Verify if Telephone Number {formData.TelephoneNumber} was added.");
             IWebElement CalendarInput = driver.FindElement(PracticeFormPageEnums.CalendarInput);
+            GlobalMethods.ScrollToElement(CalendarInput);
             SelectDateCalendar(CalendarInput, formData.DateBirth);
             IWebElement SubjectInput = driver.FindElement(PracticeFormPageEnums.SubjectInput);
             GlobalMethods.ScrollToElement(SubjectInput);
@@ -40,7 +41,8 @@ namespace TestAutomationSimple.PageObject
             bool enterSubjectInput = GlobalMethods.EnterText(SubjectInput, formData.Subject);
             Assert.True(enterSubjectInput, $"Verify if Subject {formData.Subject} was added.");
             Thread.Sleep(2000);
-            IWebElement SubjectInputOption = driver.FindElement(PracticeFormPageEnums.SubjectInputOption);            
+            IWebElement SubjectInputOption = driver.FindElement(PracticeFormPageEnums.SubjectInputOption);
+            GlobalMethods.ScrollToElement(SubjectInputOption);
             Assert.True(SubjectInputOption.Displayed, "Verify if Subject Option was displayed.");
             bool clickSubjectInputOption = GlobalMethods.ClickOn(SubjectInputOption);
             Assert.True(clickSubjectInputOption, $"Verify if Subject Option {formData.Subject} was clicked.");

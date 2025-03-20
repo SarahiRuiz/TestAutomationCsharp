@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {}
+    "C:\\Users\\Ana.Ruiz\\source\\MyTraning\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {
+    "C:\\Users\\Ana.Ruiz\\source\\MyTraning\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
+        "projectUniqueName": "C:\\Users\\Ana.Ruiz\\source\\MyTraning\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
         "projectName": "TestAutomationSimple",
-        "projectPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
+        "projectPath": "C:\\Users\\Ana.Ruiz\\source\\MyTraning\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\TestAutomationSimple.csproj",
         "packagesPath": "C:\\Users\\Ana.Ruiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ana.Ruiz\\source\\repos\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\obj\\",
+        "outputPath": "C:\\Users\\Ana.Ruiz\\source\\MyTraning\\TestAutomation2\\TestAutomationSimple\\TestAutomationSimple\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ana.Ruiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://feeds.axadmin.net/nuget/nuget/": {}
         },
@@ -35,7 +40,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -51,7 +62,7 @@
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[4.5.0, )"
+              "version": "[5.0.0, )"
             },
             "Selenium.Support": {
               "target": "Package",
@@ -59,11 +70,11 @@
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.15.0, )"
+              "version": "[4.29.0, )"
             },
             "WebDriverManager": {
               "target": "Package",
-              "version": "[2.17.1, )"
+              "version": "[2.17.5, )"
             }
           },
           "imports": [
@@ -82,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
