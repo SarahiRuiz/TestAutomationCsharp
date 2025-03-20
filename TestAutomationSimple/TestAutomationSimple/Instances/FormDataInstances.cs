@@ -1,6 +1,6 @@
 ﻿using TestAutomationSimple.Model;
 
-namespace TestAutomationSimple.Data
+namespace TestAutomationSimple.Instances
 {
     public class FormDataInstances
     {

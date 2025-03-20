@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections;
+using TestAutomationSimple.Instances;
 using TestAutomationSimple.Model;
 
 namespace TestAutomationSimple.Data
