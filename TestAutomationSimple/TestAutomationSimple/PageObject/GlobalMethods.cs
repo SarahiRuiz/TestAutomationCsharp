@@ -50,7 +50,7 @@ namespace TestAutomationSimple.PageObject
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
             return wait.Until(d => WaitToScrollToElement(element));
         }
-        public bool WaitToScrollToElement(IWebElement element)
+        private bool WaitToScrollToElement(IWebElement element)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace TestAutomationSimple.PageObject
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
             return wait.Until(d => WaitToClickRadioButtonOrCheckBox(element));
         }
-        public bool WaitToClickRadioButtonOrCheckBox(IWebElement element)
+        private bool WaitToClickRadioButtonOrCheckBox(IWebElement element)
         {
             try
             {                 

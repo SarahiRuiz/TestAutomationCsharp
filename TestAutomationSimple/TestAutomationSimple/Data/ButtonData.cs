@@ -16,7 +16,9 @@ namespace TestAutomationSimple.Data
         {
             var testType = new Dictionary<ButtonType, string>
             {
-                {ButtonType.DoubleClick, "Test1"}
+                {ButtonType.DoubleClick, "Test1"},
+                {ButtonType.Click, "Test2"},
+                {ButtonType.RightClick, "Test3"}
             };
             foreach(var (buttonTypeActual, TestId) in testType)
             {
