@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Threading;
 
 namespace TestAutomationSimple.PageObject
 {
@@ -95,6 +96,25 @@ namespace TestAutomationSimple.PageObject
         public int GetTotalOfElements(By element)
         {
             return driver.FindElements(element).Count;
+        }
+        public bool DoubleClickOn(IWebElement element, int timeOut = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
+            return wait.Until(d => WaitToDoubleClick(element));
+        }
+        private bool WaitToDoubleClick(IWebElement element)
+        {
+            try
+            {
+                new Actions(driver)
+                    .DoubleClick(element)
+                    .Perform();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

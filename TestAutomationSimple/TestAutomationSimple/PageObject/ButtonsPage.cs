@@ -18,7 +18,8 @@ namespace TestAutomationSimple.PageObject
                     IWebElement DoubleClickButton = driver.FindElement(ButtonsPageEnums.DoubleClickButton);
                     GlobalMethods.ScrollToElement(DoubleClickButton);
                     Assert.IsTrue(DoubleClickButton.Displayed, "Verify Double Click Button was displayed.");
-
+                    bool DoubleClickButtonClicked = GlobalMethods.DoubleClickOn(DoubleClickButton);
+                    Assert.IsTrue(DoubleClickButtonClicked, "Verify 'Double Click Button' was clicked.");
                     break;
                 case ButtonType.Click:
                     break;
