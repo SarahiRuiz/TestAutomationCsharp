@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script {
+                script { //This is a way to manage failers in the test cases.
                     def testExitCode = bat(script: 'dotnet test --no-build --no-restore', returnStatus: true)
                     if (testExitCode != 0) {
                         echo "⚠️ Algunos tests fallaron. Código: ${testExitCode}"
@@ -19,6 +19,14 @@ pipeline {
                 }
             }
         }
-
+        post {
+            always {
+                emailext (
+                    subject: "Resultado del Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: "Este es un correo de prueba.",
+                    to: "hotdog112277@gmail.com"
+                )
+            }
+        }
     }
 }
