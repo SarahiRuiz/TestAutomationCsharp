@@ -17,7 +17,7 @@ namespace TestAutomationSimple.PageObject
         {
             // Configura el driver con WebDriverManager
             new DriverManager().SetUpDriver(new ChromeConfig());
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             driver.Url = "https://demoqa.com/";
             action = new Actions(driver);
             driver.Manage().Window.Maximize();
