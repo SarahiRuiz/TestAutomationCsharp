@@ -1,11 +1,23 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') { 
+        stage('Restore') {
             steps {
-                sh 'dotnet restore' 
-                sh 'dotnet build --no-restore' 
+                sh 'dotnet restore'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'dotnet build --no-restore'
+                sh 'dotnet test --logger trx'
+            }
+        }
+        stage('Test') {
+            steps {
                 sh 'dotnet test'
+                sh 'dotnet test --logger trx'
+
             }
         }
     }
