@@ -19,14 +19,14 @@ pipeline {
                 }
             }
         }
-        post {
-            always {
-                emailext (
-                    subject: "Resultado del Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "Este es un correo de prueba.",
-                    to: "hotdog112277@gmail.com"
-                )
-            }
+    }
+    post {
+        always {
+             emailext (
+                subject: "Resultado del Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Este es un correo de prueba.",
+                to: "hotdog112277@gmail.com"
+            )
         }
     }
 }
