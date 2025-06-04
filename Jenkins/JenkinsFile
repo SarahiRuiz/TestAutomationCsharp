@@ -10,8 +10,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'dotnet test --no-build --no-restore --logger:trx'
+                script {
+                    def testExitCode = bat(script: 'dotnet test --no-build --no-restore', returnStatus: true)
+                    if (testExitCode != 0) {
+                        echo "⚠️ Algunos tests fallaron. Código: ${testExitCode}"
+                        currentBuild.result = 'UNSTABLE' // o 'FAILURE' si quieres marcarlo tú mismo
+                    }
+                }
             }
         }
+
     }
 }
